@@ -1,0 +1,55 @@
+version: '3.0'
+
+services:
+
+  sym-api-db:
+    container_name: sym-api-db
+    image: mysql:8.0
+    ports:
+      - 33006:3306
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ro${MYSQL_ROOT_PASSWORD}
+    command: mysqld --sql_mode="STRICT_ALL_TABLES,NO_ENGINE_SUBSTITUTION"
+    volumes:
+      - sym-api-db-data:/var/lib/mysql
+    networks:
+      - sym-back
+
+  sym-api-app:
+    container_name: sym-api-app
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        TIMEZONE: ${TIMEZONE}
+    volumes:
+      - ./app/:/var/www/html
+    networks:
+      - sym-back
+
+  sym-api-back:
+    container_name: sym-api-back
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    env_file:
+      - .env
+    environment:
+      XDEBUG_CONFIG: client_host=host.docker.internal
+    ports:
+      - 8081:80
+    volumes:
+      - ./app/:/var/www/html
+    networks:
+      - sym-back
+
+
+volumes:
+  sym-api-db-data:
+
+networks:
+  sym-back:
+
