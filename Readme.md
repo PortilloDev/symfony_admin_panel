@@ -29,3 +29,5 @@ Debbug: composer require symfony/debug-pack
 Bundle: composer require symfony/maker-bundle --dev
 Admin Panel: composer require easycorp/easyadmin-bundle
 ```
+Created new crud:
+php bin/console make:admin:crud
