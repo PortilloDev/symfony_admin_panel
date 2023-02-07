@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 use App\Entity\Post;
 use App\Entity\Comment;
 use App\Entity\Category;
+use App\Entity\User;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -55,6 +56,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories',    'fa fa-folder', Category::class);
         yield MenuItem::linkToCrud('Posts',         'fa fa-cloud', Post::class);
         yield MenuItem::linkToCrud('Comments',      'fa fa-comments', Comment::class);
+        yield MenuItem::linkToCrud('Users',         'fa fa-users', User::class);
 
         yield MenuItem::linkToRoute('Sitio Web',   'fa fa-home', 'app_home');
     }
