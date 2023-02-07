@@ -24,6 +24,7 @@ Steps for build the application:
 ## Dependencies:
 ```
 Databases dependency: composer require symfony/orm-pack
+Annotations Doctrine: composer require doctrine/annotations
 Templates front: composer require symfony/twig-pack
 Debbug: composer require symfony/debug-pack
 Bundle: composer require symfony/maker-bundle --dev
@@ -33,3 +34,9 @@ Faker: composer require zenstruck/foundry --dev
 ```
 Created new crud:
 php bin/console make:admin:crud
+
+Authentication Service. Steps:
+- php bin/console make:user
+- php bin/console make:auth
+- php bin/console make:registration-form
+- Review security.yaml file
