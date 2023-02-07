@@ -28,6 +28,8 @@ Templates front: composer require symfony/twig-pack
 Debbug: composer require symfony/debug-pack
 Bundle: composer require symfony/maker-bundle --dev
 Admin Panel: composer require easycorp/easyadmin-bundle
+Seeders: composer require orm-fixtures --dev
+Faker: composer require zenstruck/foundry --dev
 ```
 Created new crud:
 php bin/console make:admin:crud
