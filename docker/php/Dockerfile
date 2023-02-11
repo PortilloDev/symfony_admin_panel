@@ -6,6 +6,7 @@ COPY ./docker/php/php.ini /usr/local/etc/php/conf.d/docker-php-config.ini
 
 RUN apt-get update && apt-get install -y \
     gnupg \
+    npm \
     g++ \
     procps \
     openssl \

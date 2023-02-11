@@ -31,6 +31,7 @@ Bundle: composer require symfony/maker-bundle --dev
 Admin Panel: composer require easycorp/easyadmin-bundle
 Seeders: composer require orm-fixtures --dev
 Faker: composer require zenstruck/foundry --dev
+twig: composer require --dev friendsoftwig/twigcs
 ```
 Created new crud:
 php bin/console make:admin:crud
@@ -40,3 +41,23 @@ Authentication Service. Steps:
 - php bin/console make:auth
 - php bin/console make:registration-form
 - Review security.yaml file
+
+
+Install bootstrap:
+- composer require symfony/webpack-encore-bundle
+- npm install bootstrap --save-dev
+- npm install
+
+go assets/sytles/app.cs and include the next line "@import 'bootstrap';". Latest execute in terminal the next command:
+- npm run dev
+
+Install npm and node in container:
+
+- apt install sudo
+- usermod -aG sudo root 
+- sudo apt install curl
+- curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+- sudo apt-get install -y nodejs   
+- configurar en el archivo app/config/packages/twig.yaml
+    -     form_themes: ['bootstrap_5_layout.html.twig']
+
